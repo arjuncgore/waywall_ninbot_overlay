@@ -13,7 +13,7 @@ cd waywall_http
 make
 ```
 > It is suggested to clone this to a different directory such as waywall_http so you have a fallback if it doesn't work
-- Change your wrapper command to use this fork '/home/<username>/waywall_http/build/waywall/waywall wrap --'
+- Change your wrapper command to use this fork `/home/<username>/waywall_http/build/waywall/waywall wrap --`
 - Download the following files and place them in your Waywall config folder with `init.lua` (`~/.config/waywall/`):
   - `nb_overlay.lua`
   - `dkjson.lua`
