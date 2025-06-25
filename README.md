@@ -68,7 +68,7 @@ Replace `nb_background.png` with your own image.
 ---
 ## Preview
 <p align="center">
-  <img src="./overlay_preview.png" width="1000">
+  <img src="./preview.png" width="1000">
 </p>
 *Example overlay showing Nether travel prediction*
 
