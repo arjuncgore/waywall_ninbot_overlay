@@ -75,6 +75,9 @@ Replace `nb_background.png` with your own image.
 ---
 
 ## Credits
-- Tesselslate for creating the original Waywall
-- Arsoniv for creating the fork of Waywall that allows for http requests
-- Ninjabrain for creating the bot that has API integration that makes this possible
+
+- **Tesselslate** – creator of the original Waywall
+- **Arsoniv** – developer of the Waywall fork with HTTP support
+- **Ninjabrain** – creator of Ninjabrain bot
+
+---
