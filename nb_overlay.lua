@@ -14,7 +14,7 @@ local look = {
     X = 500,
     Y = 10,
     fill = '#000000',
-    outline = '#000000',
+    bold = true,
     size = 2
 }
 
@@ -35,10 +35,10 @@ end
 
 local nb_background = {
 	full = make_image(nb_background_path, {
-		dst = { x = 498, y = 10, w = 390, h = 161},
+		dst = { x = 498, y = 10, w = 1+24*8*look.size, h = 1+5*16*look.size},
 	}),
 	partial = make_image(nb_background_path, {
-		dst = { x = 498, y = 10, w = 390, h = 65},
+		dst = { x = 498, y = 10, w = 1+24*8*look.size, h = 1+2*16*look.size},
 	}),
 }
 
@@ -197,7 +197,9 @@ local function update_overlay()
     local state = waywall.state()
     if state and state.screen == "inworld" then
         text_handle = waywall.text(layout, look.X, look.Y, look.fill, look.size)
-        text_handle_bold = waywall.text(layout, look.X+1, look.Y, look.outline, look.size)
+        if look.bold then
+            text_handle_bold = waywall.text(layout, look.X+1, look.Y, look.fill, look.size)
+        end
     end
 end
 
