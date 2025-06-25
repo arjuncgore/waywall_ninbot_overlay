@@ -18,7 +18,7 @@ local look = {
     size = 2
 }
 
-local nb_background_path = "/home/arjungore/.config/waywall/nb_background.png"
+local nb_background_path = "/home/<username>/.config/waywall/nb_background.png"
 
 local make_image = function(path, dst)
 	local this = nil
