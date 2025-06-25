@@ -6,6 +6,14 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
 
 ## Installation
 - You must use Arsoniv's fork of Waywall for http requests (https://github.com/Arsoniv/waywall)
+```bash
+cd
+git clone https://github.com/Arsoniv/waywall waywall_http
+cd waywall_http
+make
+```
+> It is suggested to clone this to a different directory such as waywall_http so you have a fallback if it doesn't work
+- Change your wrapper command to use this fork '/home/<username>/waywall_http/build/waywall/waywall wrap --'
 - Download the following files and place them in your Waywall config folder with `init.lua` (`~/.config/waywall/`):
   - `nb_overlay.lua`
   - `dkjson.lua`
@@ -39,9 +47,13 @@ end,
 ["<any key>"] = nb_overlay.disable_overlay,
 ```
 > Replace `<any key>` with your preferred key for disabling the overlay.
-> 
 **Do not change the key for `enable_overlay`** — it is designed to be triggered with `F3 + C` to ensure the overlay updates in sync with Minecraft.
 
+### 3. Change the background path's username to your own in `nb_overlay.lua`
+eg.
+```lua
+local nb_background_path = "/home/arjungore/.config/waywall/nb_background.png"
+```
 ---
 
 ## Customization
