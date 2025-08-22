@@ -9,7 +9,7 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
   - `nb_overlay.lua`
   - `dkjson.lua`
   - `nb_background.png`
-  - 'requests.lua`
+  - `requests.lua`
 
 ---
 
