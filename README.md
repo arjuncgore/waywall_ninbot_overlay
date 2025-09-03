@@ -10,7 +10,14 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
   - `dkjson.lua`
   - `nb_background.png`
   - `requests.lua`
-
+- Enable API in Ninjabrain
+  - Navigate to Settings > Advanced and turn on "Enable API"
+- Install `luarocks` using your package manager
+  - `sudo dnf install luarocks` on Fedora
+  - `sudo apt-get install luarocks` on Debian/Ubuntu
+  - `sudo pacman -S luarocks` on Arch
+- Install `luasec` with luarocks
+  - `sudo luarocks --lua-version=5.1 install luasec`
 ---
 
 ## Setup
