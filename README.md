@@ -10,7 +10,7 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
 cd ~/.config/waywall
 git clone https://github.com/arjuncgore/waywall_ninbot_overlay.git
 ```
-- Enable API in Ninjabrain
+- Enable API in Ninjabrain Bot
   - Navigate to Settings > Advanced and turn on "Enable API"
 - Install `luarocks` using your package manager
   - `sudo dnf install luarocks` on Fedora
