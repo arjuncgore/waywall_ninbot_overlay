@@ -5,11 +5,11 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
 ---
 
 ## Installation
-- Download the following files and place them in your Waywall config folder with `init.lua` (`~/.config/waywall/`):
-  - `nb_overlay.lua`
-  - `dkjson.lua`
-  - `nb_background.png`
-  - `requests.lua`
+- Clone the repository into your waywall config folder
+```bash
+cd ~/.config/waywall
+git clone https://github.com/arjuncgore/waywall_ninbot_overlay.git
+```
 - Enable API in Ninjabrain
   - Navigate to Settings > Advanced and turn on "Enable API"
 - Install `luarocks` using your package manager
@@ -26,7 +26,7 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
 Add this line to your `init.lua` **before your `config.actions` section**:
 
 ```lua
-local nb_overlay = require("nb_overlay")
+local nb_overlay = require("waywall_ninbot_overlay.nb_overlay")
 ```
 
 ### 2. Add keybindings
