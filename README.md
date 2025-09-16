@@ -5,20 +5,19 @@ A lightweight [Ninjabrain Bot](https://github.com/Ninjabrain1/Ninjabrain-Bot) ov
 ---
 
 ## Installation
-- You must use Arsoniv's fork of Waywall for http requests (https://github.com/Arsoniv/waywall)
+- Clone the repository into your waywall config folder
 ```bash
-cd
-git clone https://github.com/Arsoniv/waywall waywall_http
-cd waywall_http
-make
+cd ~/.config/waywall
+git clone https://github.com/arjuncgore/waywall_ninbot_overlay.git
 ```
-> It is suggested to clone this to a different directory such as waywall_http so you have a fallback if it doesn't work
-- Change your wrapper command to use this fork `/home/<username>/waywall_http/build/waywall/waywall wrap --`
-- Download the following files and place them in your Waywall config folder with `init.lua` (`~/.config/waywall/`):
-  - `nb_overlay.lua`
-  - `dkjson.lua`
-  - `nb_background.png`
-
+- Enable API in Ninjabrain Bot
+  - Navigate to Settings > Advanced and turn on "Enable API"
+- Install `luarocks` using your package manager
+  - `sudo dnf install luarocks` on Fedora
+  - `sudo apt-get install luarocks` on Debian/Ubuntu
+  - `sudo pacman -S luarocks` on Arch
+- Install `luasec` with luarocks
+  - `sudo luarocks --lua-version=5.1 install luasec`
 ---
 
 ## Setup
@@ -27,7 +26,7 @@ make
 Add this line to your `init.lua` **before your `config.actions` section**:
 
 ```lua
-local nb_overlay = require("nb_overlay")
+local nb_overlay = require("waywall_ninbot_overlay.nb_overlay")
 ```
 
 ### 2. Add keybindings
@@ -37,8 +36,9 @@ Add these binds to `config.actions`:
 ```lua
 ["*-C"] = function()
   if waywall.get_key("F3") then
+    waywall.press_key("C")
+    waywall.sleep(200)
     nb_overlay.enable_overlay()
-    return false
   else
     return false
   end
@@ -48,7 +48,6 @@ end,
 ```
 > Replace `<any key>` with your preferred key for disabling the overlay.
 **Do not change the key for `enable_overlay`** — it is designed to be triggered with `F3 + C` to ensure the overlay updates in sync with Minecraft.
-
 ### 3. Change the background path's username to your own in `nb_overlay.lua`
 eg.
 ```lua
@@ -89,7 +88,9 @@ Replace `nb_background.png` with your own image.
 ## Credits
 
 - **Tesselslate** – creator of the original Waywall
-- **Arsoniv** – developer of the Waywall fork with HTTP support
+- **Arsoniv** – developer of the Waywall fork with HTTP support (inspired the original version of this overlay)
 - **Ninjabrain** – creator of Ninjabrain bot
+- **David Heiko Kolf and others** - creator of the json lua library https://github.com/LuaDist/dkjson
+- **Jakob Green** - creator of the requests lua library https://github.com/JakobGreen/lua-requests
 
 ---
