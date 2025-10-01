@@ -9,7 +9,7 @@ local ltn12 = require('ltn12')
 local ok, json = pcall(require, "cjson.safe")
 if not ok then ok, json = pcall(require, "cjson") end
 if not ok then
-  local dkjson = require("dkjson")      -- you already use this
+  local dkjson = require("waywall_ninbot_overlay.dkjson")      -- you already use this
   json = { encode = dkjson.encode, decode = dkjson.decode }
 end
 

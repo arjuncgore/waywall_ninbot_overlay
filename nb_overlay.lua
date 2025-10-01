@@ -1,6 +1,6 @@
 local waywall = require("waywall")
-local requests = require("requests")
-local json = require("dkjson")
+local requests = require("waywall_ninbot_overlay.requests")
+local json = require("waywall_ninbot_overlay.dkjson")
 
 local NB_OVERLAY = {}
 
@@ -19,7 +19,7 @@ local look = {
     size = 2
 }
 
-local nb_background_path = "/home/arjungore/.config/waywall/nb_background.png"
+local nb_background_path = "/home/arjungore/.config/waywall/waywall_ninbot_overlay/nb_background.png"
 
 local make_image = function(path, dst)
 	local this = nil
