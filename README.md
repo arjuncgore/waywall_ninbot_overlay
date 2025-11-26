@@ -12,7 +12,7 @@ git clone https://github.com/arjuncgore/waywall_ninbot_overlay.git
 ```
 - Enable API in Ninjabrain Bot
   - Navigate to Settings > Advanced and turn on "Enable API"
-- Install `luarocks` using your package manager
+- Install `luarocks` using your package manager (this is also a waywall dependency and should already by installed on your system)
   - `sudo dnf install luarocks` on Fedora
   - `sudo apt-get install luarocks` on Debian/Ubuntu
   - `sudo pacman -S luarocks` on Arch
@@ -48,11 +48,6 @@ end,
 ```
 > Replace `<any key>` with your preferred key for disabling the overlay.
 **Do not change the key for `enable_overlay`** — it is designed to be triggered with `F3 + C` to ensure the overlay updates in sync with Minecraft.
-### 3. Change the background path's username to your own in `nb_overlay.lua`
-eg.
-```lua
-local nb_background_path = "/home/arjungore/.config/waywall/nb_background.png"
-```
 ---
 
 ## Customization
