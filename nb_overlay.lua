@@ -22,25 +22,25 @@ local look = {
 local nb_background_path = "/home/arjungore/.config/waywall/waywall_ninbot_overlay/nb_background.png"
 
 local make_image = function(path, dst)
-	local this = nil
+    local this = nil
 
-	return function(enable)
-		if enable and not this then
-			this = waywall.image(path, dst)
-		elseif this and not enable then
-			this:close()
-			this = nil
-		end
-	end
+    return function(enable)
+        if enable and not this then
+            this = waywall.image(path, dst)
+        elseif this and not enable then
+            this:close()
+            this = nil
+        end
+    end
 end
 
 local nb_background = {
-	full = make_image(nb_background_path, {
-		dst = { x = 498, y = 10, w = 1+24*8*look.size, h = 1+5*16*look.size},
-	}),
-	partial = make_image(nb_background_path, {
-		dst = { x = 498, y = 10, w = 1+24*8*look.size, h = 1+2*16*look.size},
-	}),
+    full = make_image(nb_background_path, {
+        dst = { x = 498, y = 10, w = 1 + 24 * 8 * look.size, h = 1 + 5 * 16 * look.size },
+    }),
+    partial = make_image(nb_background_path, {
+        dst = { x = 498, y = 10, w = 1 + 24 * 8 * look.size, h = 1 + 2 * 16 * look.size },
+    }),
 }
 
 local full_background_toggle = nb_background.full
@@ -53,7 +53,6 @@ end
 function set_partial_background(toggle_func)
     partial_background_toggle = toggle_func
 end
-
 
 local function angle_to_destination(x_pos, z_pos, x_dest, z_dest)
     local dx = x_dest - x_pos
@@ -134,26 +133,25 @@ local function update_overlay()
     }
 
     local layout =
-    "Status:" .. nb_mode() .. "\n" ..
-    "Boat? :" .. boat_status() .. "\n"
+        "Status:" .. nb_mode() .. "\n" ..
+        "Boat? :" .. boat_status() .. "\n"
 
     full_background_toggle(false)
     partial_background_toggle(true)
 
 
     if data_sh and data_sh.predictions
-    and data_sh.predictions[1]
-    and data_sh.predictions[1].certainty
-    and data_sh.predictions[1].certainty < 0.95
+        and data_sh.predictions[1]
+        and data_sh.predictions[1].certainty
+        and data_sh.predictions[1].certainty < 0.95
     then
         local cert = math.floor(data_sh.predictions[1].certainty * 100)
         layout =
-        "Status   :" .. nb_mode() .. "\n" ..
-        "Certainty:" .. cert .. "%\n"
+            "Status   :" .. nb_mode() .. "\n" ..
+            "Certainty:" .. cert .. "%\n"
 
         full_background_toggle(false)
         partial_background_toggle(true)
-
     end
 
 
@@ -167,7 +165,6 @@ local function update_overlay()
             px = player.xInOverworld
             pz = player.zInOverworld
             distance = math.floor(sh.overworldDistance or 0)
-
         elseif player.isInNether then
             sh_x = math.floor(2 * (sh.chunkX or 0))
             sh_z = math.floor(2 * (sh.chunkZ or 0))
@@ -183,16 +180,15 @@ local function update_overlay()
 
         local turn = getdirection(player.horizontalAngle, angle)
 
-        layout = 
+        layout =
             "Status  :" .. nb_mode() .. "\n" ..
             "Coords  :(" .. sh_x .. "," .. sh_z .. ")\n" ..
             "Distance:" .. distance .. " blocks\n" ..
             "Angle   :" .. string.format("%.2f", angle) .. " deg\n" ..
             "Turn    :" .. turn .. "(" .. math.floor(math.abs(diff)) .. " deg)\n"
-            
+
         full_background_toggle(true)
         partial_background_toggle(false)
-
     end
 
     local state = waywall.state()
@@ -227,8 +223,12 @@ NB_OVERLAY.enable_overlay = function()
 end
 
 NB_OVERLAY.disable_overlay = function()
-    if text_handle then text_handle:close(); text_handle = nil end
-    if text_handle_bold then text_handle_bold:close(); text_handle_bold = nil end
+    if text_handle then
+        text_handle:close(); text_handle = nil
+    end
+    if text_handle_bold then
+        text_handle_bold:close(); text_handle_bold = nil
+    end
     if full_background_toggle then
         full_background_toggle(false)
     end
