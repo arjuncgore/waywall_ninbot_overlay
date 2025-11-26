@@ -197,9 +197,9 @@ local function update_overlay()
 
     local state = waywall.state()
     if state and state.screen == "inworld" then
-        text_handle = waywall.text(layout, look.X, look.Y, look.color, look.size)
+        text_handle = waywall.text(layout, { x = look.X, y = look.Y, color = look.color, size = look.size })
         if look.bold then
-            text_handle_bold = waywall.text(layout, look.X+1, look.Y, look.color, look.size)
+            text_handle_bold = waywall.text(layout, { x = look.X + 1, y = look.Y, color = look.color, size = look.size })
         end
     end
 end
